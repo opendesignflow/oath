@@ -10,6 +10,12 @@
 	<description>
         OATH provides components for building one-time password authentication systems.
     </description>
+
+    <parent>
+        <groupId>org.odfi</groupId>
+        <artifactId>superpom</artifactId>
+        <version>1.0.13</version>
+    </parent>
     
     <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -29,9 +35,9 @@
 	</developers>
 	
     <scm>
-        <connection>scm:git:https://github.com/johnnymongiat/oath.git</connection>
-        <developerConnection>scm:git:https://github.com/johnnymongiat/oath.git</developerConnection>
-        <url>https://github.com/johnnymongiat/oath.git</url>
+        <connection>scm:git:https://github.com/opendesignflow/oath.git</connection>
+        <developerConnection>scm:git:https://github.com/opendesignflow/oath.git</developerConnection>
+        <url>https://github.com/opendesignflow/oath.git</url>
     </scm>
     
     <issueManagement>
@@ -82,7 +88,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <version>3.8.0</version>
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
@@ -91,7 +97,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.3</version>
+                <version>3.0.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -104,10 +110,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
-                <configuration>
-                    <additionalparam>${javadoc.doclint.none}</additionalparam>
-                </configuration>
+                <version>3.1.0</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -159,6 +162,55 @@
 	        </plugin>
         </plugins>
     </build>
+
+    <!-- Repositories to find ODFI packages -->
+    <!-- ############################################## -->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>sonatype</id>
+            <name>Sonatype OSS Snapshots Repository</name>
+            <url>http://oss.sonatype.org/content/groups/public</url>
+        </pluginRepository>
+        <pluginRepository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>odfi.central</id>
+            <name>plugins-release</name>
+            <url>http://www.opendesignflow.org/maven/repository/internal/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <id>odfi.snapshots</id>
+            <name>plugins-snapshot</name>
+            <url>http://www.opendesignflow.org/maven/repository/snapshots/</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <repositories>
+        <repository>
+            <id>sonatype</id>
+            <name>Sonatype OSS Snapshots Repository</name>
+            <url>http://oss.sonatype.org/content/groups/public</url>
+        </repository>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>odfi.central</id>
+            <name>odfi-release</name>
+            <url>http://www.opendesignflow.org/maven/repository/internal/</url>
+        </repository>
+        <repository>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <id>odfi.snapshots</id>
+            <name>odfi-snapshot</name>
+            <url>http://www.opendesignflow.org/maven/repository/snapshots/</url>
+        </repository>
+    </repositories>
     
     <reporting>
         <plugins>
